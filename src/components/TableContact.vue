@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="item in $store.state.contacts" :key="item.id">
+    <tr v-for="item in store.state.contacts" :key="item.id">
         <td>{{ item.tag }}</td>
         <td>
         <RouterLink :to="{path: `/user/${item.id}`}">
@@ -52,7 +52,7 @@ import { RouterLink } from 'vue-router';
                 await axios.delete(`https://feyalonfakeapi.onrender.com/posts/${i}`)
                 update()
             }
-            return {deleteContact}
+            return {deleteContact, store}
         }
 
     })

@@ -1,16 +1,16 @@
 <template>
     <ul>
         <li class="mb-3">
-            <input type="text" placeholder="Новое имя" :value="name" @input="name = $event.target.value" required>
+            <input type="text" placeholder="Новое имя" v-model="name" required>
         </li>
         <li class="mb-3">
-            <input type="text" placeholder="Новый имэйл" @input="email = $event.target.value" required>
+            <input type="text" placeholder="Новый имэйл" v-model="email" required>
         </li>
         <li class="mb-3"> 
-            <input type="text" placeholder="Новый номер" @input="number = $event.target.value" required>
+            <input type="text" placeholder="Новый номер" v-model="number" required>
         </li>
         <li class="mb-3">
-            <input type="text" placeholder="Новый тег" @input="tag = $event.target.value" required>
+            <input type="text" placeholder="Новый тег" v-model="tag" required>
         </li>
         <li>
             <RouterLink to="/">
@@ -28,10 +28,10 @@ export default defineComponent({
     props: ['id'],
     setup(props) {
         console.log(props)
-        const name = ref("")
-        const email = ref("")
-        const number = ref("")
-        const normalId = JSON.parse(JSON.stringify(props.id))
+        const name: any = ref("")
+        const email: any = ref("")
+        const number: any = ref("")
+        const normalId: any = JSON.parse(JSON.stringify(props.id))
         console.log(normalId)
         const tag = ref("")
         async function updateContact() {

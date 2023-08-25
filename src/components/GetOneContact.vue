@@ -5,7 +5,7 @@
                 Назад
             </button>
         </RouterLink>
-        <div v-for="item in $store.state.contact" :key="item.id" v-if="!update" class="m-3">
+        <div v-for="item in store.state.contact" :key="item.id" v-if="!update" class="m-3">
             <h1>
                 Имя: {{ item.name }}
             </h1>
@@ -33,8 +33,10 @@ import UpdateContact from '../components/UpdateContact.vue'
 import {useStore} from '../store/index'
     export default defineComponent({
         components: {UpdateContact},
+        
         props: ['id'],
         setup(props) {
+            
             let update: any = ref(false)
             const store = useStore()
             const result: any = ref(null)
@@ -42,7 +44,7 @@ import {useStore} from '../store/index'
             onMounted(() => {
                 store.dispatch('getContact', props.id)
             })
-            return {result, update}
+            return {result, update, store}
         }
     })
 </script>

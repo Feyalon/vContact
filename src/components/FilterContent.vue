@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-        <select class="form-select" @change="name = $event.target.value" aria-label="Default select example">
+        <select class="form-select" v-model="name" aria-label="Default select example">
             <option value="name">По имени</option>
             <option value="tag">По тегу</option>
             <option value="number">По Номеру</option>
