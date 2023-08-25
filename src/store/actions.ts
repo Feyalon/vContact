@@ -16,10 +16,17 @@ export const searchContact = async ({commit}, searchText) => {
             commit('SET_CONTACTS', response.data)
         })
     }else{
-        await axios.get(`https://feyalonfakeapi.onrender.com/posts?name_like=${searchText}`).then((response) => {
+        if(Number(searchText)){
+            await axios.get(`https://feyalonfakeapi.onrender.com/posts?number_like=${searchText}`).then((response) => {
+            console.log(searchText)
+            commit('SET_CONTACTS', response.data)
+        })
+        }else{
+            await axios.get(`https://feyalonfakeapi.onrender.com/posts?name_like=${searchText}`).then((response) => {
             console.log(searchText)
             commit('SET_CONTACTS', response.data)
     })
+        }
     }
 }
 export const filterContact = ({commit}, name) => {
